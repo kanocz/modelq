@@ -69,9 +69,9 @@ func main() {
 }
 
 func formatCodes(pkg string) {
-	log.Println("Running gofmt *.go")
+	log.Println("Running goimports *.go")
 	var out bytes.Buffer
-	cmd := exec.Command("gofmt", "-w", pkg)
+	cmd := exec.Command("goimports", "-w", pkg)
 	cmd.Stderr = &out
 	if err := cmd.Run(); err != nil {
 		log.Println(out.String())
